@@ -34,17 +34,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.DustBunny, function (sprite,
     otherSprite.setVelocity(0, 50)
     sprite.destroy()
 })
-// testing
 
-function fix_shower () {
-    if (showerIsFixed) {
-        for (let index = 0; index <= 6; index++) {
-            tiles.setWallAt(tiles.getTileLocation(37, index + 2), false)
-            tiles.setTileAt(tiles.getTileLocation(37, index + 2), sprites.dungeon.floorLight0)
-            pause(200)
-        }
-    }
-}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.DustBunny, function (sprite, otherSprite) {
     dustBunny.startEffect(effects.clouds)
     game.showLongText("Too much dust!", DialogLayout.Bottom)
@@ -67,11 +57,7 @@ function challenge1 () {
     nearDoor = false
     talkedToBear = true
 }
-function near_sink () {
-    if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile15)) {
-        sinkIsFixed = true
-    }
-}
+
 // interact with npc and other things
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile5)) {
@@ -93,16 +79,8 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     	
     }
 })
-function near_toilet () {
-    if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile16)) {
-        toiletIsFixed = true
-    }
-}
-function when_near_door () {
-    if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile5)) {
-        nearDoor = true
-    }
-}
+
+
 /**
  * GOAL --
  * 
@@ -110,88 +88,18 @@ function when_near_door () {
  * 
  *     pickLock
  */
-function pickLock () {
-    // replace if with 'when near door'
-    if (nearDoor) {
-        tiles.setTileAt(tiles.getTileLocation(9, 5), myTiles.tile11)
-        tiles.setWallAt(tiles.getTileLocation(9, 5), false)
-    } else {
-        game.showLongText("The door is still locked", DialogLayout.Bottom)
-    }
-}
-function fix_sink () {
-    if (sinkIsFixed) {
-        for (let index = 0; index <= 6; index++) {
-            tiles.setWallAt(tiles.getTileLocation(35, index + 2), false)
-            tiles.setTileAt(tiles.getTileLocation(35, index + 2), sprites.dungeon.floorLight0)
-            pause(200)
-        }
-    }
-}
+
+
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile11, function (sprite, location) {
     tiles.placeOnTile(thePlayer, tiles.getTileLocation(17, 5))
     createDustBunnies()
 })
-function when_near_fan () {
-    if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile12) || (thePlayer.tileKindAt(TileDirection.Top, myTiles.tile12) || thePlayer.tileKindAt(TileDirection.Left, myTiles.tile12))) {
-        fanOn = true
-    }
-}
+
 function challenge3 () {
     game.showLongText("The sink, the toilet, and the shower are flooded!", DialogLayout.Bottom)
     game.showLongText("You'll have to fix each to stop the flooding.", DialogLayout.Bottom)
 }
-function fanBlowsAir () {
-    if (fanOn) {
-        fan = sprites.create(img`
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            `, SpriteKind.Fan)
-        tiles.placeOnRandomTile(fan, myTiles.tile12)
-        projectile = sprites.createProjectileFromSprite(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . 9 . . . . . . . . 
-            . . . . . . . 9 . . . . . . . . 
-            . . . . . 9 9 . . . . . . . . . 
-            . . . . 9 9 . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . 9 . . 9 9 . . . . . . . . 
-            . . . 9 . 9 9 9 9 . . . . . . . 
-            . . . 9 . 9 . . 9 . 9 . . . . . 
-            . . . 9 . . . 9 . . . 9 . . . . 
-            . . . 9 9 9 9 9 . . . . 9 . . . 
-            . . . . . . . . 9 9 . . 9 . . . 
-            . . . . . . . 9 9 9 9 . 9 . . . 
-            . . . . . . . 9 . . 9 . 9 9 . . 
-            . . . . . . . 9 9 . . . 9 . . . 
-            . . . . . . . . 9 9 9 9 9 . . . 
-            `, fan, 0, 50)
-    }
-    pause(200)
-}
-function fix_toilet () {
-    if (toiletIsFixed) {
-        for (let index = 0; index <= 6; index++) {
-            tiles.setWallAt(tiles.getTileLocation(36, 7 - index), false)
-            tiles.setTileAt(tiles.getTileLocation(36, 7 - index), sprites.dungeon.floorLight0)
-            pause(200)
-        }
-    }
-}
+
 function createDustBunnies () {
     for (let value of tiles.getTilesByType(myTiles.tile10)) {
         dustBunny = sprites.create(img`
