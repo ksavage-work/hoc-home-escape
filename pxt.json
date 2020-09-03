@@ -11,7 +11,9 @@
         "main.ts",
         "README.md",
         "tilemap.g.jres",
-        "tilemap.g.ts"
+        "tilemap.g.ts",
+        "extension.ts",
+        "name.ts"
     ],
     "testFiles": [
         "test.ts"
