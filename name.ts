@@ -1,20 +1,27 @@
+let tileHandler: () => void;
+
 namespace hoc {
-    //%block
     //% block="When near door"
-    export function when_near_door() { 
-        if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile5)) {
-            nearDoor = true
-        }
+    export function nearDoor(handler: () => void) {
+        tileHandler = handler
     }
+    //% block="When near door"
+    // export function when_near_door() { 
+    //     if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile5)) {
+    //         nearDoor = true
+    //     }
+    // }
     //%block
     export function pickLock () {
         // replace if with 'when near door'
-        if (nearDoor) {
-            tiles.setTileAt(tiles.getTileLocation(9, 5), myTiles.tile11)
-            tiles.setWallAt(tiles.getTileLocation(9, 5), false)
-        } else {
-            game.showLongText("The door is still locked", DialogLayout.Bottom)
-        }
+        tiles.setTileAt(tiles.getTileLocation(9, 5), myTiles.tile11)
+        tiles.setWallAt(tiles.getTileLocation(9, 5), false)
+        // if (nearDoor) {
+        //     tiles.setTileAt(tiles.getTileLocation(9, 5), myTiles.tile11)
+        //     tiles.setWallAt(tiles.getTileLocation(9, 5), false)
+        // } else {
+        //     game.showLongText("The door is still locked", DialogLayout.Bottom)
+        // }
     }
     //%block
     export function when_near_fan () {
@@ -114,3 +121,9 @@ namespace hoc {
         }
     }
 }
+
+game.onUpdate(function () {
+    if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile5)) {
+        tileHandler()
+    }
+})

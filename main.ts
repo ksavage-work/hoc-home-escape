@@ -1,7 +1,7 @@
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    // hoc.when_near_door()
     if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile5)) {
-        hoc.when_near_door()
-        hoc.pickLock()
+    	
     } else if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile12)) {
         hoc.when_near_fan()
         for (let index = 0; index < 50; index++) {
@@ -19,4 +19,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     } else {
         game.showLongText("failed", DialogLayout.Bottom)
     }
+})
+hoc.nearDoor(function () {
+    hoc.pickLock()
 })
