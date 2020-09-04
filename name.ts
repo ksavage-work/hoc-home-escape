@@ -14,17 +14,18 @@ namespace hoc {
     }
     
     //%block="near fan"
-    export function nearFan(): boolean { //(handler: () => void) {
+    export function nearFan(): boolean { 
         if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile12)) {
             return true;
         }
         return false;
     }
 
-    //%block
+    //%block="fan blows air"
     export function fanBlowsAir () {
-        for (let i = 0; i < 5; i++) {
-            projectile = sprites.createProjectileFromSprite(img`
+        if (nearFan()) {
+            for (let i = 0; i < 50; i++) {
+                projectile = sprites.createProjectileFromSprite(img`
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . 9 . . . . . . . . 
                 . . . . . . . 9 . . . . . . . . 
@@ -41,19 +42,23 @@ namespace hoc {
                 . . . . . . . 9 . . 9 . 9 9 . . 
                 . . . . . . . 9 9 . . . 9 . . . 
                 . . . . . . . . 9 9 9 9 9 . . . 
-            `, fan, 0, 50)
-            pause(200)
+                `, fan, 0, 50)
+                pause(200)
+            }
         }
     }
-    //%block
-    export function near_sink () {
+
+    //%block="near sink"
+    export function near_sink (): boolean {
         if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile15)) {
-            sinkIsFixed = true
+            //sinkIsFixed = true
+            return true;
         }
+        return false;
     }
-    //%block
+    //%block="fix sink"
     export function fix_sink () {
-        if (sinkIsFixed) {
+        if (near_sink()) {
             for (let index = 0; index <= 6; index++) {
                 tiles.setWallAt(tiles.getTileLocation(35, index + 2), false)
                 tiles.setTileAt(tiles.getTileLocation(35, index + 2), sprites.dungeon.floorLight0)
@@ -61,15 +66,17 @@ namespace hoc {
             }
         }
     }
-    //% block
-    export function near_shower () {
+    //% block="near shower"
+    export function near_shower (): boolean {
         if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile17)) {
-            showerIsFixed = true
+            //showerIsFixed = true
+            return true;
         }
+        return false;
     }
-    //% block
+    //% block="fix shower"
     export function fix_shower () {
-        if (showerIsFixed) {
+        if (near_shower()) {
             for (let index = 0; index <= 6; index++) {
                 tiles.setWallAt(tiles.getTileLocation(37, index + 2), false)
                 tiles.setTileAt(tiles.getTileLocation(37, index + 2), sprites.dungeon.floorLight0)
@@ -77,15 +84,17 @@ namespace hoc {
             }
         }
     }
-    //%block
-    export function near_toilet () {
+    //%block="near toilet"
+    export function near_toilet (): boolean {
         if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile16)) {
-            toiletIsFixed = true
+            //toiletIsFixed = true
+            return true;
         }
+        return false;
     }
-    //%block
+    //%block="fix toilet"
     export function fix_toilet () {
-        if (toiletIsFixed) {
+        if (near_toilet()) {
             for (let index = 0; index <= 6; index++) {
                 tiles.setWallAt(tiles.getTileLocation(36, 7 - index), false)
                 tiles.setTileAt(tiles.getTileLocation(36, 7 - index), sprites.dungeon.floorLight0)

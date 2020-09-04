@@ -125,7 +125,7 @@ function createDustBunnies () {
 }
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile13, function (sprite, location) {
     tiles.placeOnTile(thePlayer, tiles.getTileLocation(33, 5))
-    //fanOn = false
+    hoc.nearFan()
     sinkIsFixed = false
     toiletIsFixed = false
     showerIsFixed = false
@@ -135,7 +135,6 @@ function challenge2 () {
     game.showLongText("Watch out! Some evil dust bunnies are blocking the door!", DialogLayout.Bottom)
     game.showLongText("If you run into them, you might choke on the dust.", DialogLayout.Bottom)
     game.showLongText("You'll need to defeat them before going to the next room.", DialogLayout.Bottom)
-    //fanOn = false
 }
 // add intro, instructions
 let projectile: Sprite = null
