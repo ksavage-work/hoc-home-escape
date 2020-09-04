@@ -5,52 +5,25 @@ namespace hoc {
     export function nearDoor(handler: () => void) {
         tileHandler = handler
     }
-    //% block="When near door"
-    // export function when_near_door() { 
-    //     if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile5)) {
-    //         nearDoor = true
-    //     }
-    // }
+    
     //%block
     export function pickLock () {
         // replace if with 'when near door'
         tiles.setTileAt(tiles.getTileLocation(9, 5), myTiles.tile11)
         tiles.setWallAt(tiles.getTileLocation(9, 5), false)
-        // if (nearDoor) {
-        //     tiles.setTileAt(tiles.getTileLocation(9, 5), myTiles.tile11)
-        //     tiles.setWallAt(tiles.getTileLocation(9, 5), false)
-        // } else {
-        //     game.showLongText("The door is still locked", DialogLayout.Bottom)
-        // }
     }
-    //%block
-    export function when_near_fan () {
-        if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile12) || (thePlayer.tileKindAt(TileDirection.Top, myTiles.tile12) || thePlayer.tileKindAt(TileDirection.Left, myTiles.tile12))) {
-            fanOn = true
+    
+    //%block="near fan"
+    export function nearFan(): boolean { //(handler: () => void) {
+        if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile12)) {
+            return true;
         }
+        return false;
     }
+
     //%block
     export function fanBlowsAir () {
-        if (fanOn) {
-            fan = sprites.create(img`
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                `, SpriteKind.Fan)
-            tiles.placeOnRandomTile(fan, myTiles.tile12)
+        for (let i = 0; i < 5; i++) {
             projectile = sprites.createProjectileFromSprite(img`
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . 9 . . . . . . . . 
@@ -68,9 +41,9 @@ namespace hoc {
                 . . . . . . . 9 . . 9 . 9 9 . . 
                 . . . . . . . 9 9 . . . 9 . . . 
                 . . . . . . . . 9 9 9 9 9 . . . 
-                `, fan, 0, 50)
+            `, fan, 0, 50)
+            pause(200)
         }
-        pause(200)
     }
     //%block
     export function near_sink () {

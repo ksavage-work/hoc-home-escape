@@ -4,31 +4,6 @@ namespace SpriteKind {
     export const Fan = SpriteKind.create()
     export const BrokenAppliance = SpriteKind.create()
 }
-/**
- * functions to turn into blocks
- */
-/**
- * GOAL --
- * 
- * while NEAR FAN
- * 
- *      fanBlowsAir
- */
-/**
- * GOAL --
- * 
- * if (near sink) 
- * 
- *      fix sink
- * 
- * else if (near shower)
- * 
- *      fix shower
- * 
- * else if (near toilet)
- * 
- *      fix toilet
- */
 
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.DustBunny, function (sprite, otherSprite) {
     otherSprite.setVelocity(0, 50)
@@ -93,11 +68,34 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile11, function (sprite, location) {
     tiles.placeOnTile(thePlayer, tiles.getTileLocation(17, 5))
     createDustBunnies()
+    createFan()
 })
 
 function challenge3 () {
     game.showLongText("The sink, the toilet, and the shower are flooded!", DialogLayout.Bottom)
     game.showLongText("You'll have to fix each to stop the flooding.", DialogLayout.Bottom)
+}
+
+function createFan () {
+    fan = sprites.create(img`
+                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+        `, SpriteKind.Fan)
+    tiles.placeOnRandomTile(fan, myTiles.tile12)
 }
 
 function createDustBunnies () {
@@ -127,7 +125,7 @@ function createDustBunnies () {
 }
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile13, function (sprite, location) {
     tiles.placeOnTile(thePlayer, tiles.getTileLocation(33, 5))
-    fanOn = false
+    //fanOn = false
     sinkIsFixed = false
     toiletIsFixed = false
     showerIsFixed = false
@@ -137,12 +135,12 @@ function challenge2 () {
     game.showLongText("Watch out! Some evil dust bunnies are blocking the door!", DialogLayout.Bottom)
     game.showLongText("If you run into them, you might choke on the dust.", DialogLayout.Bottom)
     game.showLongText("You'll need to defeat them before going to the next room.", DialogLayout.Bottom)
-    fanOn = false
+    //fanOn = false
 }
 // add intro, instructions
 let projectile: Sprite = null
 let fan: Sprite = null
-let fanOn = false
+//let fanOn = false
 let toiletIsFixed = false
 let sinkIsFixed = false
 let talkedToBear = false
