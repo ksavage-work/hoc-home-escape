@@ -1,6 +1,7 @@
 namespace hoc {
     //%block
-    export function when_near_door () {
+    //% block="When near door"
+    export function when_near_door() { 
         if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile5)) {
             nearDoor = true
         }

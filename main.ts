@@ -4,7 +4,6 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         hoc.pickLock()
     } else if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile12)) {
         hoc.when_near_fan()
-        // fanBlowsAir()
         for (let index = 0; index < 50; index++) {
             hoc.fanBlowsAir()
         }
