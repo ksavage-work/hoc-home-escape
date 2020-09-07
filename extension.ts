@@ -16,54 +16,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.DustBunny, function (sprite, oth
     pause(500)
     game.over(false)
 })
-/**
- * Challenges
- * 
- * rm1 - event
- * 
- * rm2 - loop
- * 
- * rm3 -
- */
-// make more instructional
-function challenge1 () {
-    game.showLongText("Looks like someone locked the door. ", DialogLayout.Bottom)
-    game.showLongText("Don't worry, you can pick the lock with code!", DialogLayout.Bottom)
-    nearDoor = false
-    talkedToBear = true
-}
-
-// interact with npc and other things
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile5)) {
-        if (talkedToBear == false) {
-            game.showLongText("Uh oh! It's locked!", DialogLayout.Bottom)
-            game.showLongText("Talk to Bear for some help!", DialogLayout.Bottom)
-        } else {
-            game.showLongText("You'll need to unlock the door with code!", DialogLayout.Bottom)
-        }
-    } else if (thePlayer.tileKindAt(TileDirection.Top, myTiles.tile6)) {
-        challenge1()
-    } else if (thePlayer.tileKindAt(TileDirection.Top, myTiles.tile9)) {
-        challenge2()
-    } else if (thePlayer.tileKindAt(TileDirection.Left, myTiles.tile4)) {
-        game.showLongText("The door won't budge!", DialogLayout.Bottom)
-    } else if (thePlayer.tileKindAt(TileDirection.Bottom, myTiles.tile18)) {
-        challenge3()
-    } else {
-    	
-    }
-})
-
-
-/**
- * GOAL --
- * 
- * when near door
- * 
- *     pickLock
- */
-
 
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile11, function (sprite, location) {
     tiles.placeOnTile(thePlayer, tiles.getTileLocation(17, 5))
@@ -71,30 +23,25 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile11, function (sprite, locatio
     createFan()
 })
 
-function challenge3 () {
-    game.showLongText("The sink, the toilet, and the shower are flooded!", DialogLayout.Bottom)
-    game.showLongText("You'll have to fix each to stop the flooding.", DialogLayout.Bottom)
-}
-
 function createFan () {
     fan = sprites.create(img`
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-        `, SpriteKind.Fan)
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+    `, SpriteKind.Fan)
     tiles.placeOnRandomTile(fan, myTiles.tile12)
 }
 
@@ -130,12 +77,7 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile13, function (sprite, locatio
     toiletIsFixed = false
     showerIsFixed = false
 })
-// make more instructional
-function challenge2 () {
-    game.showLongText("Watch out! Some evil dust bunnies are blocking the door!", DialogLayout.Bottom)
-    game.showLongText("If you run into them, you might choke on the dust.", DialogLayout.Bottom)
-    game.showLongText("You'll need to defeat them before going to the next room.", DialogLayout.Bottom)
-}
+
 // add intro, instructions
 let projectile: Sprite = null
 let fan: Sprite = null

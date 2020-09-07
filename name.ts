@@ -50,7 +50,7 @@ namespace hoc {
 
     //%block="near sink"
     export function near_sink (): boolean {
-        if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile15)) {
+        if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile7)) {
             //sinkIsFixed = true
             return true;
         }
