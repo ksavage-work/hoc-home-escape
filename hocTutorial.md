@@ -1,6 +1,9 @@
 # Escape your house!
 
 ``` template
+hoc.near_door(function() {
+    
+})
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (true) {
     	
@@ -25,7 +28,7 @@ You can only pick the lock when you're close to the door. From the ``||Hoc:Hoc||
 find the ``||Hoc:When near door||`` Event block and drag it into the workspace.
 
 ``` block
-hoc.nearDoor(function () {
+hoc.near_door(function () {
     
 })
 ```
@@ -41,7 +44,7 @@ Try going up to the door to pick the lock!
 
 ``` block
 hoc.nearDoor(function () {
-    hoc.pickLock()
+    hoc.pick_lock()
 })
 ```
 
@@ -79,14 +82,21 @@ block and put it in the **true** slot. Now, when the **B button** is pressed, ou
 if the player is near the fan.
 
 ``` block
-if (near_fan) {
+if (hoc.near_fan()) {
 
 }
 ```
+
 ## Room 2, pt 4
 When the **A button** is pressed and our player is near the fan, we want to turn the fan on. From
 the ``||Hoc:Hoc||`` drawer find the ``||Hoc:fan on||`` block. Put it inside the ``||logic:if then||`` block.
 Go next to the fan and press B to try it out! While the fan is on, run to the door!
+
+``` block
+if (hoc.near_fan()) {
+    hoc.fan_blows_air()
+}
+```
 
 ## Room 3 : Bathroom @unplugged
 Phew! There are no evil dust bunnies in here...but it looks like the bathroom is flooded. The sink,

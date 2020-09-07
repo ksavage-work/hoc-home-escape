@@ -72,7 +72,7 @@ function createDustBunnies () {
 }
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile13, function (sprite, location) {
     tiles.placeOnTile(thePlayer, tiles.getTileLocation(33, 5))
-    hoc.nearFan()
+    hoc.near_fan()
     sinkIsFixed = false
     toiletIsFixed = false
     showerIsFixed = false
