@@ -7,7 +7,7 @@ namespace hoc {
         tileHandler = handler
     }
     
-    //%block
+    //%block="pick lock"
     export function pick_lock () {
         // replace if with 'when near door'
         tiles.setTileAt(tiles.getTileLocation(9, 5), myTiles.tile11)
