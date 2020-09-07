@@ -24,17 +24,16 @@ You've been in your room all of quarantine so there shouldn't be any obstaclesâ€
 It looks like someone locked your door. I guess you'll have to pick the lock using code. 
 
 ## Room 1, pt 1 @fullscreen
-You can only pick the lock when you're close to the door. From the ``||Hoc:Hoc||`` drawer in the Toolbox, 
-find the ``||Hoc:When near door||`` Event block and drag it into the workspace.
+In order to pick the door's lock, you need to use an Event block. An **Event** is something that 
+triggers the code to run. In this case, the event is being near the door, and the code that 
+will run is picking the lock.
 
 ``` block
 hoc.near_door(function () {
     
 })
 ```
-In order to pick the door's lock, you need to use an Event block. An event is something that 
-triggers the code to run. In this case, the event is being near the door, and the code 
-that will run is picking the lock.
+``||Hoc:When near door||`` is an event block. Put the code to pick the door's lock inside of this block.
 
 ## Room 1, pt 2
 When you're near the door you'll need to pick the lock to make it open. From the ``||Hoc:Hoc||`` drawer, find the 
