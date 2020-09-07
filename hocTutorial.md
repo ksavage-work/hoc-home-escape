@@ -1,5 +1,20 @@
 # hocTutorial
 
+``` template
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (true) {
+    	
+    } else if (true) {
+    	
+    } else if (true) {
+    	
+    }
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+   
+})
+```
+
 ## Introduction @unplugged
 We'll need to go through each room until we find the front door. 
 You've been in your room all of quarantine so there shouldn't be any obstacles… WAIT! 
@@ -69,13 +84,17 @@ toilet, and shower are all overflowing. You'll need to fix them using code to ge
 
 ## Room 3, pt 1
 Luckily, we can use more ``||logic:if then||`` blocks to fix these faucets. But this time, we 
-need our program to check if the player is near the sink, the toilet, or the shower. Find another, 
-``||logic:if then||`` block. This time drag it into the ``||controller:on B pressed||``.
+need our program to check if the player is near the sink, the toilet, or the shower. For this, 
+we'll use the longer ``||logic:if then||`` block that's on the workspace in the ``||controller:on B pressed||``.
 
 ``` block
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 	if (true) {
-
+    	
+    } else if (true) {
+    	
+    } else if (true) {
+    	
     }
 })
 ```
@@ -87,6 +106,10 @@ the **true** in the ``||logic:if then||`` block.
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 	if (near_sink) {
 
+    } else if (false) {
+    	
+    } else if (false) {
+    	
     }
 })
 ```
@@ -100,14 +123,17 @@ From the same ``||Hoc:Hoc||`` drawer, find the ``||Hoc:fix sink||`` block and dr
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 	if (near_sink) {
         hoc.fix_sink()
+    } else if (false) {
+    	
+    } else if (false) {
+    	
     }
 })
 ```
 
 ## Room 3, pt 4
-Now, the code will fix the sink. Time to fix the toilet and shower! Click the **+** at the bottom
-of the ``||logic:if near sink then||`` block **twice**. This will add two areas for the toilet fixing
-code and the shower fixing code.
+Now, the code will fix the sink. Time to fix the toilet and shower! This is what the two 
+``||logic:else if||`` areas are for!
 
 ## Room 3, pt 5
 Open the ``||Hoc:Hoc||`` drawer and find the ``||Hoc:near toilet||`` block. Drag it next to the ``||logic:else if||``
@@ -119,7 +145,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         hoc.fix_sink()
     } else if (hoc.near_toilet()) {
     	
-    } else {
+    } else if (true) {
     	
     }
 })
