@@ -12,7 +12,6 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     	
     }
 })
-
-hoc.near_door(function() {
-    
+hoc.near_door(function () {
+	
 })

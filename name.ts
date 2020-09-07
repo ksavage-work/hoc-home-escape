@@ -15,7 +15,7 @@ namespace hoc {
     }
     
     //%block="near fan"
-    export function near_fan(): boolean { 
+    export function near_fan (): boolean { 
         if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile12)) {
             return true;
         }
