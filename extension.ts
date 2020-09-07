@@ -81,7 +81,6 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile13, function (sprite, locatio
 // add intro, instructions
 let projectile: Sprite = null
 let fan: Sprite = null
-//let fanOn = false
 let toiletIsFixed = false
 let sinkIsFixed = false
 let talkedToBear = false

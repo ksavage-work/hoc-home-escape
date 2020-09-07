@@ -1,4 +1,4 @@
-# hocTutorial
+# Escape your house!
 
 ``` template
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -16,7 +16,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 ```
 
 ## Introduction @unplugged
-We'll need to go through each room until we find the front door. 
+We'll need to go through each room until you find the front door. 
 You've been in your room all of quarantine so there shouldn't be any obstacles… WAIT! 
 It looks like someone locked your door. I guess you'll have to pick the lock using code. 
 
@@ -106,9 +106,9 @@ the **true** in the ``||logic:if then||`` block.
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 	if (near_sink) {
 
-    } else if (false) {
+    } else if (true) {
     	
-    } else if (false) {
+    } else if (true) {
     	
     }
 })
@@ -123,9 +123,9 @@ From the same ``||Hoc:Hoc||`` drawer, find the ``||Hoc:fix sink||`` block and dr
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 	if (near_sink) {
         hoc.fix_sink()
-    } else if (false) {
+    } else if (true) {
     	
-    } else if (false) {
+    } else if (true) {
     	
     }
 })
@@ -164,7 +164,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         hoc.fix_sink()
     } else if (hoc.near_toilet()) {
     	hoc.fix_toilet()
-    } else if () {
+    } else if (true) {
     	
     }
 })
