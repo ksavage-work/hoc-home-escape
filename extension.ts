@@ -110,6 +110,9 @@ thePlayer = sprites.create(img`
 tiles.placeOnRandomTile(thePlayer, myTiles.tile3)
 controller.moveSprite(thePlayer)
 scene.cameraFollowSprite(thePlayer)
+game.showLongText("There shouldn't be any obstacles in here...", DialogLayout.Bottom)
+game.showLongText("Uh oh!", DialogLayout.Bottom)
+game.showLongText("The door's locked! Pick the lock using code.", DialogLayout.Bottom)
 game.onUpdate(function () {
     for (let value of sprites.allOfKind(SpriteKind.DustBunny)) {
         if (value.isHittingTile(CollisionDirection.Top)) {

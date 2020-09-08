@@ -19,9 +19,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 ```
 
 ## Introduction @unplugged
-We'll need to go through each room until you find the front door. 
-You've been in your room all of quarantine so there shouldn't be any obstacles… WAIT! 
-It looks like someone locked your door. I guess you'll have to pick the lock using code. 
+Finally! Quarantine is over and you can go see your friends. But, you've been inside your room
+for so long that some obstacles have sprung up between you and the front door. Luckily, you
+can use code to get past them! 
 
 ## Room 1, pt 1 @fullscreen
 In order to pick the door's lock, you need to use an Event block. An **Event** is something that 
@@ -33,7 +33,7 @@ hoc.near_door(function () {
     
 })
 ```
-``||Hoc:When near door||`` is an event block. Put the code to pick the door's lock inside of this block.
+``||Hoc:When near door||`` is an event block. The code to pick the door's lock will go inside of this block.
 
 ## Room 1, pt 2
 When you're near the door you'll need to pick the lock to make it open. From the ``||Hoc:Hoc||`` drawer, find the 
