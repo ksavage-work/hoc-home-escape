@@ -1,12 +1,14 @@
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (hoc.near_sink()) {
+    if (hoc.near_bathroom_sink()) {
         hoc.fix_sink()
     } else if (hoc.near_toilet()) {
         hoc.fix_toilet()
     } else if (hoc.near_shower()) {
         hoc.fix_shower()
     } else {
-        hoc.clean_dishes()
+        for (let index = 0; index < 5; index++) {
+            hoc.clean_dishes()
+        }
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {

@@ -48,8 +48,8 @@ namespace hoc {
         }
     }
 
-    //%block="near sink"
-    export function near_sink (): boolean {
+    //%block="near bathroom sink"
+    export function near_bathroom_sink (): boolean {
         if (thePlayer.tileKindAt(TileDirection.Right, myTiles.tile7)) {
             //sinkIsFixed = true
             return true;
@@ -58,7 +58,7 @@ namespace hoc {
     }
     //%block="fix sink"
     export function fix_sink () {
-        if (near_sink()) {
+        if (near_bathroom_sink()) {
             for (let index = 0; index <= 6; index++) {
                 tiles.setWallAt(tiles.getTileLocation(35, index + 2), false)
                 tiles.setTileAt(tiles.getTileLocation(35, index + 2), sprites.dungeon.floorLight0)
@@ -102,12 +102,21 @@ namespace hoc {
             }
         }
     }
+    //%block="near kitchen sink"
+    export function near_kitchen_sink (): boolean {
+        if (thePlayer.tileKindAt(TileDirection.Top, myTiles.tile29)) {
+            return true;
+        }
+        return false;
+    }
     //%block="clean dishes"
     export function clean_dishes () {
-        if (thePlayer.tileKindAt(TileDirection.Top, myTiles.tile29)) {
-            effects.bubbles.startScreenEffect(200)
-            wash_dishes(1)
-            pause(200)
+        if (near_kitchen_sink()) {
+            if (thePlayer.tileKindAt(TileDirection.Top, myTiles.tile29)) {
+                effects.bubbles.startScreenEffect(200)
+                wash_dishes(1)
+                pause(200)
+            }
         }
     }
 }

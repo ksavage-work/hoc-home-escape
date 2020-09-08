@@ -6,11 +6,13 @@ namespace SpriteKind {
     export const BrokenAppliance = SpriteKind.create()
 }
 
+//fan wind overlaps dustbunny
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.DustBunny, function (sprite, otherSprite) {
     otherSprite.setVelocity(0, 50)
     sprite.destroy()
 })
 
+//player overlaps dustbunny
 sprites.onOverlap(SpriteKind.Player, SpriteKind.DustBunny, function (sprite, otherSprite) {
     dustBunny.startEffect(effects.clouds)
     game.showLongText("Too much dust!", DialogLayout.Bottom)
@@ -18,6 +20,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.DustBunny, function (sprite, oth
     game.over(false)
 })
 
+//player moves from bedroom (room 1) to offic (room 2)
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile11, function (sprite, location) {
     tiles.placeOnTile(thePlayer, tiles.getTileLocation(17, 5))
     createDustBunnies()
@@ -71,6 +74,8 @@ function createDustBunnies () {
     }
     tiles.replaceAllTiles(myTiles.tile10, myTiles.tile1)
 }
+
+//player moves from office (room 2) to bathroom (room 3)
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile13, function (sprite, location) {
     tiles.placeOnTile(thePlayer, tiles.getTileLocation(33, 5))
     hoc.near_fan()
@@ -79,6 +84,7 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile13, function (sprite, locatio
     showerIsFixed = false
 })
 
+//places mold on green tiles
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile14, function (sprite, location) {
     tiles.placeOnTile(thePlayer, tiles.getTileLocation(48, 5))
     moldyAir()
@@ -109,10 +115,14 @@ function moldyAir () {
     }
     tiles.replaceAllTiles(myTiles.tile30, sprites.dungeon.floorLight0)
 }
+
+//makes mold bounce of wall
 scene.onHitWall(SpriteKind.Mold, function(sprite: Sprite, location: tiles.Location) {
     sprite.setVelocity(randint(-50, 50), randint(-50, 50))
     sprite.startEffect(effects.spray, 100)
 })
+
+// finish game, reach front door
 scene.onOverlapTile(SpriteKind.Player, img`
             . . . . . . . . . . . . . . . .
             . . . . . . . . . . . . . . . .
@@ -133,6 +143,7 @@ scene.onOverlapTile(SpriteKind.Player, img`
         `, function(sprite: Sprite, location: tiles.Location) {
     game.over(true)
 })
+
 // add intro, instructions
 let projectile: Sprite = null
 let fan: Sprite = null
