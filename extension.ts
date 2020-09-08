@@ -113,7 +113,26 @@ scene.onHitWall(SpriteKind.Mold, function(sprite: Sprite, location: tiles.Locati
     sprite.setVelocity(randint(-50, 50), randint(-50, 50))
     sprite.startEffect(effects.spray, 100)
 })
-
+scene.onOverlapTile(SpriteKind.Player, img`
+            . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . . .
+            . 8 8 . 8 8 . . 8 . 8 8 . . . .
+            . 8 . . 8 8 . . 8 . 8 . 8 . . .
+            . 8 . . 8 . 8 . 8 . 8 . 8 . . .
+            . 8 . . 8 . 8 . 8 . 8 . 8 . . .
+            . 8 8 . 8 . . 8 8 . 8 . 8 . . .
+            . 8 . . 8 . . 8 8 . 8 . 8 . . .
+            . 8 . . 8 . . 8 8 . 8 . 8 . . .
+            . 8 . . 8 . . . 8 . 8 . 8 . . .
+            . 8 8 . 8 . . . 8 . 8 8 . . . .
+            . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . . .
+        `, function(sprite: Sprite, location: tiles.Location) {
+    game.over(true)
+})
 // add intro, instructions
 let projectile: Sprite = null
 let fan: Sprite = null
@@ -160,6 +179,24 @@ game.onUpdate(function () {
         }
     }
     if (wash_count == 5) {
+        tiles.setTileAt(tiles.getTileLocation(57, 5), img`
+            . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . . .
+            . 8 8 . 8 8 . . 8 . 8 8 . . . .
+            . 8 . . 8 8 . . 8 . 8 . 8 . . .
+            . 8 . . 8 . 8 . 8 . 8 . 8 . . .
+            . 8 . . 8 . 8 . 8 . 8 . 8 . . .
+            . 8 8 . 8 . . 8 8 . 8 . 8 . . .
+            . 8 . . 8 . . 8 8 . 8 . 8 . . .
+            . 8 . . 8 . . 8 8 . 8 . 8 . . .
+            . 8 . . 8 . . . 8 . 8 . 8 . . .
+            . 8 8 . 8 . . . 8 . 8 8 . . . .
+            . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . . .
+        `)
         tiles.setWallAt(tiles.getTileLocation(57, 5), false)
     }
 })
