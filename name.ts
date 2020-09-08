@@ -2,14 +2,13 @@ let tileHandler: () => void;
 
 namespace hoc {
     
-    //% block="When near door"
+    //%block="When near door"
     export function near_door(handler: () => void) {
         tileHandler = handler
     }
     
     //%block="pick lock"
     export function pick_lock () {
-        // replace if with 'when near door'
         tiles.setTileAt(tiles.getTileLocation(9, 5), myTiles.tile11)
         tiles.setWallAt(tiles.getTileLocation(9, 5), false)
     }
