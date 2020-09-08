@@ -102,6 +102,18 @@ namespace hoc {
             }
         }
     }
+    //%block="clean dishes"
+    export function clean_dishes () {
+        if (thePlayer.tileKindAt(TileDirection.Top, myTiles.tile29)) {
+            effects.bubbles.startScreenEffect(200)
+            wash_dishes(1)
+            pause(200)
+        }
+    }
+}
+
+function wash_dishes (count: number) {
+	wash_count += count
 }
 
 game.onUpdate(function () {

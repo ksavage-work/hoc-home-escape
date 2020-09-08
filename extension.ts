@@ -1,5 +1,6 @@
 // Add your code here
 namespace SpriteKind {
+    export const Mold = SpriteKind.create()
     export const DustBunny = SpriteKind.create()
     export const Fan = SpriteKind.create()
     export const BrokenAppliance = SpriteKind.create()
@@ -78,6 +79,41 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile13, function (sprite, locatio
     showerIsFixed = false
 })
 
+scene.onOverlapTile(SpriteKind.Player, myTiles.tile14, function (sprite, location) {
+    tiles.placeOnTile(thePlayer, tiles.getTileLocation(48, 5))
+    moldyAir()
+})
+
+function moldyAir () {
+    for (let value of tiles.getTilesByType(myTiles.tile30)) {
+        mold = sprites.create(img`
+            . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . . .
+            . . 7 6 . 7 6 7 . . . . . . . .
+            . . 6 6 7 e 7 6 . . 6 6 7 . . .
+            . . . 7 . . . 7 . . . 6 6 . . .
+            . . . . . . 7 . 6 . 6 . . . . .
+            . . . . . . 6 6 . e . . . . . .
+            . 6 . . . 7 6 . . 7 . . 6 . . .
+            . . 7 . . . e . . . 6 6 e . . .
+            . . . e . 6 . . . . . 6 . . . .
+            . . 6 . 6 . 7 . 6 . . . 7 . 6 .
+            . . . . . . . . . . . . . 6 . .
+            . . . . 7 . . . . . . . . . . .
+            . . . . . 6 . . . . 7 . . . . .
+            . . . . . . . . . . . 6 . . . .
+            . . . . . . . . . . . . . . . .
+        `, SpriteKind.Mold)
+        tiles.placeOnTile(mold, value)
+        mold.setVelocity(randint(-50, 50), randint(-50, 50))
+    }
+    tiles.replaceAllTiles(myTiles.tile30, sprites.dungeon.floorLight0)
+}
+scene.onHitWall(SpriteKind.Mold, function(sprite: Sprite, location: tiles.Location) {
+    sprite.setVelocity(randint(-50, 50), randint(-50, 50))
+    sprite.startEffect(effects.spray, 100)
+})
+
 // add intro, instructions
 let projectile: Sprite = null
 let fan: Sprite = null
@@ -86,8 +122,10 @@ let sinkIsFixed = false
 let talkedToBear = false
 let nearDoor = false
 let dustBunny: Sprite = null
+let mold: Sprite = null
 let showerIsFixed = false
 let thePlayer: Sprite = null
+let wash_count = 0
 tiles.setTilemap(tilemap`level`)
 thePlayer = sprites.create(img`
     . . . . . . . . . . b 5 b . . . 
@@ -120,5 +158,8 @@ game.onUpdate(function () {
         } else if (value.isHittingTile(CollisionDirection.Bottom)) {
             value.vy = randint(-30, -60)
         }
+    }
+    if (wash_count == 5) {
+        tiles.setWallAt(tiles.getTileLocation(57, 5), false)
     }
 })
