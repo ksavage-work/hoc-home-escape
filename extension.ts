@@ -209,5 +209,9 @@ game.onUpdate(function () {
             . . . . . . . . . . . . . . . .
         `)
         tiles.setWallAt(tiles.getTileLocation(57, 5), false)
+        let allMoldySprites = sprites.allOfKind(SpriteKind.Mold)
+        for (let value of allMoldySprites) {
+            value.destroy()
+        }
     }
 })
