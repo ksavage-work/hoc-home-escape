@@ -4,10 +4,11 @@ namespace hoc {
     
     //%block
     export function sprite_visual (inputImage:Image) {
-        thePlayer = sprites.create(inputImage, SpriteKind.Player)
-        tiles.placeOnRandomTile(thePlayer, myTiles.tile3)
-        controller.moveSprite(thePlayer)
-        scene.cameraFollowSprite(thePlayer)
+        thePlayer.setImage(inputImage)
+        // thePlayer = sprites.create(inputImage, SpriteKind.Player)
+        // tiles.placeOnRandomTile(thePlayer, myTiles.tile3)
+        // controller.moveSprite(thePlayer)
+        // scene.cameraFollowSprite(thePlayer)
     }  
 
     //%block="When near door"

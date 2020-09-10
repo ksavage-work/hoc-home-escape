@@ -20,4 +20,3 @@ hoc.near_door(function () {
     hoc.pick_lock()
 })
 hoc.sprite_visual(sprites.food.smallBurger)
-
