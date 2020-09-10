@@ -46,7 +46,7 @@ Try going up to the door to pick the lock!
 
 ``` block
 hoc.nearDoor(function () {
-    hoc.pick_lock()
+    hoc.pick_lock ()
 })
 ```
 
@@ -314,3 +314,6 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 ```
+
+## End
+You made it out of your house! Congrats!
