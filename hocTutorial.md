@@ -18,16 +18,13 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
    
 })
+
 ```
 
 ## Introduction @unplugged
 Finally! Quarantine is over and you can go see your friends. But, you've been inside your room
 for so long that some obstacles have sprung up between you and the front door. Luckily, you
 can use code to get past them! 
-
-## Customize sprite
-First, you'll need to choose your character. From the ``||Hoc:Hoc||`` drawer, find the ``||Hoc: sprite visual||``
-block. Drag this into the green ``||loops: on start||`` block. Then click on the drop down menu to choose your character.
 
 ## Room 1, pt 1 @fullscreen
 In order to pick the door's lock, you need to use an Event block. An **Event** is something that 
