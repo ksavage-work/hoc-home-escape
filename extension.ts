@@ -157,27 +157,27 @@ let showerIsFixed = false
 let thePlayer: Sprite = null
 let wash_count = 0
 tiles.setTilemap(tilemap`level`)
-thePlayer = sprites.create(img`
-    . . . . . . . . . . b 5 b . . . 
-    . . . . . . . . . b 5 b . . . . 
-    . . . . . . b b b b b b . . . . 
-    . . . . . b b 5 5 5 5 5 b . . . 
-    . . . . b b 5 d 1 f 5 5 d f . . 
-    . . . . b 5 5 1 f f 5 d 4 c . . 
-    . . . . b 5 5 d f b d d 4 4 . . 
-    . b b b d 5 5 5 5 5 4 4 4 4 4 b 
-    b d d d b b d 5 5 4 4 4 4 4 b . 
-    b b d 5 5 5 b 5 5 5 5 5 5 b . . 
-    c d c 5 5 5 5 d 5 5 5 5 5 5 b . 
-    c b d c d 5 5 b 5 5 5 5 5 5 b . 
-    . c d d c c b d 5 5 5 5 5 d b . 
-    . . c b d d d d d 5 5 5 b b . . 
-    . . . c c c c c c c c b b . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Player)
-tiles.placeOnRandomTile(thePlayer, myTiles.tile3)
-controller.moveSprite(thePlayer)
-scene.cameraFollowSprite(thePlayer)
+// thePlayer = sprites.create(img`
+//     . . . . . . . . . . b 5 b . . . 
+//     . . . . . . . . . b 5 b . . . . 
+//     . . . . . . b b b b b b . . . . 
+//     . . . . . b b 5 5 5 5 5 b . . . 
+//     . . . . b b 5 d 1 f 5 5 d f . . 
+//     . . . . b 5 5 1 f f 5 d 4 c . . 
+//     . . . . b 5 5 d f b d d 4 4 . . 
+//     . b b b d 5 5 5 5 5 4 4 4 4 4 b 
+//     b d d d b b d 5 5 4 4 4 4 4 b . 
+//     b b d 5 5 5 b 5 5 5 5 5 5 b . . 
+//     c d c 5 5 5 5 d 5 5 5 5 5 5 b . 
+//     c b d c d 5 5 b 5 5 5 5 5 5 b . 
+//     . c d d c c b d 5 5 5 5 5 d b . 
+//     . . c b d d d d d 5 5 5 b b . . 
+//     . . . c c c c c c c c b b . . . 
+//     . . . . . . . . . . . . . . . . 
+//     `, SpriteKind.Player)
+// tiles.placeOnRandomTile(thePlayer, myTiles.tile3)
+// controller.moveSprite(thePlayer)
+// scene.cameraFollowSprite(thePlayer)
 game.showLongText("There shouldn't be any obstacles in here...", DialogLayout.Bottom)
 game.showLongText("Uh oh!", DialogLayout.Bottom)
 game.showLongText("The door's locked! Pick the lock using code.", DialogLayout.Bottom)
