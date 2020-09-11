@@ -45,8 +45,8 @@ When you're near the door you'll need to pick the lock to make it open. From the
 Try going up to the door to pick the lock!
 
 ``` block
-hoc.nearDoor(function () {
-    hoc.pick_lock ()
+hoc.near_door(function () {
+    hoc.pick_lock()
 })
 ```
 
@@ -260,7 +260,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     	hoc.fix_toilet()
     } else if (hoc.near_shower) {
     	hoc.fix_shower()
-    } else if (hoc.near__kitchen_sink) {
+    } else if (hoc.near_kitchen_sink) {
     
     }
 })
@@ -307,7 +307,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     	hoc.fix_toilet()
     } else if (hoc.near_shower) {
     	hoc.fix_shower()
-    } else if (hoc.near__kitchen_sink) {
+    } else if (hoc.near_kitchen_sink) {
         for (let index = 0; index < 5; index++) {
             hoc.clean_dishes()
         }

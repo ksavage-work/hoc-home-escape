@@ -1,3 +1,3 @@
-hoc.near_door(function() {
-    
+hoc.near_door(function () {
+	
 })
