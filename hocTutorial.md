@@ -128,7 +128,7 @@ the **true** in the ``||logic:if then||`` block.
 
 ``` block
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-	if (near_bathroom_sink) {
+	if (near_bathroom_sink()) {
 
     } else if (true) {
     	
@@ -147,7 +147,7 @@ From the same ``||Hoc:Hoc||`` drawer, find the ``||Hoc:fix sink||`` block and dr
 
 ``` block
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-	if (near_kitchen_sink) {
+	if (near_bathroom_sink()) {
         hoc.fix_sink()
     } else if (true) {
     	
@@ -169,7 +169,7 @@ in the ``||logic:if near_kitchen_sink then||`` block.
 
 ``` block
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (hoc.near__kitchen_sink()) {
+    if (hoc.near_bathroom_sink()) {
         hoc.fix_sink()
     } else if (hoc.near_toilet()) {
     	
@@ -190,7 +190,7 @@ toilet, the code will fix the toilet. Go ahead and try it out!
 
 ```block
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (hoc.near_kitchen_sink()) {
+    if (hoc.near_bathroom_sink()) {
         hoc.fix_sink()
     } else if (hoc.near_toilet()) {
     	hoc.fix_toilet()
@@ -209,7 +209,7 @@ From the ``||Hoc:Hoc||`` drawer, find the ``||Hoc:near shower||`` block. Drag it
 
 ```block
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (hoc.near_kitchen_sink()) {
+    if (hoc.near_bathroom_sink()) {
         hoc.fix_sink()
     } else if (hoc.near_toilet()) {
     	hoc.fix_toilet()
@@ -230,7 +230,7 @@ shower, the code will fix the shower. It's time to finally stop all this floodin
 
 ```block
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (hoc.near_kitchen_sink()) {
+    if (hoc.near_bathroom_sink()) {
         hoc.fix_sink()
     } else if (hoc.near_toilet()) {
     	hoc.fix_toilet()
@@ -254,7 +254,7 @@ to check if the player is near the kitchen sink. From ``||Hoc:Hoc||`` find
 
 ``` block
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (hoc.near_kitchen_sink()) {
+    if (hoc.near_bathroom_sink()) {
         hoc.fix_sink()
     } else if (hoc.near_toilet()) {
     	hoc.fix_toilet()
@@ -273,7 +273,7 @@ the **B button** is pressed, the player will clean **1** dish.
 
 ``` block
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (hoc.near_kitchen_sink()) {
+    if (hoc.near_bathroom_sink()) {
         hoc.fix_sink()
     } else if (hoc.near_toilet()) {
     	hoc.fix_toilet()
@@ -301,7 +301,7 @@ Now, you'll be able to clean all the dishes and leave the kitchen.
 
 ``` block
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (hoc.near_kitchen_sink()) {
+    if (hoc.near_bathroom_sink()) {
         hoc.fix_sink()
     } else if (hoc.near_toilet()) {
     	hoc.fix_toilet()
