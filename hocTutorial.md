@@ -213,7 +213,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         hoc.fix_sink()
     } else if (hoc.near_toilet()) {
     	hoc.fix_toilet()
-    } else if (hoc.near_shower) {
+    } else if (hoc.near_shower()) {
     	
     } else if (true) {
     
@@ -234,7 +234,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         hoc.fix_sink()
     } else if (hoc.near_toilet()) {
     	hoc.fix_toilet()
-    } else if (hoc.near_shower) {
+    } else if (hoc.near_shower()) {
     	hoc.fix_shower()
     } else if (true) {
     
@@ -258,9 +258,9 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         hoc.fix_sink()
     } else if (hoc.near_toilet()) {
     	hoc.fix_toilet()
-    } else if (hoc.near_shower) {
+    } else if (hoc.near_shower()) {
     	hoc.fix_shower()
-    } else if (hoc.near_kitchen_sink) {
+    } else if (hoc.near_kitchen_sink()) {
     
     }
 })
@@ -277,9 +277,9 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         hoc.fix_sink()
     } else if (hoc.near_toilet()) {
     	hoc.fix_toilet()
-    } else if (hoc.near_shower) {
+    } else if (hoc.near_shower()) {
     	hoc.fix_shower()
-    } else if (hoc.near__kitchen_sink) {
+    } else if (hoc.near__kitchen_sink()) {
         hoc.clean_dishes()
     }
 })
@@ -305,9 +305,9 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         hoc.fix_sink()
     } else if (hoc.near_toilet()) {
     	hoc.fix_toilet()
-    } else if (hoc.near_shower) {
+    } else if (hoc.near_shower()) {
     	hoc.fix_shower()
-    } else if (hoc.near_kitchen_sink) {
+    } else if (hoc.near_kitchen_sink()) {
         for (let index = 0; index < 5; index++) {
             hoc.clean_dishes()
         }
