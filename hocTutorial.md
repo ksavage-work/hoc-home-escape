@@ -242,7 +242,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 ```
 
-## Room 4, kitchn @unplugged
+## Room 4, kitchen @unplugged
 Yikes! There's a lot of mold floating around this kitchen. It seems to be coming
 from the dirty dishes in the sink. You'll need to scrub all the dishes before leaving
 or you'll be grounded!
